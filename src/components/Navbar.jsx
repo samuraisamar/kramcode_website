@@ -23,20 +23,25 @@ export default function Navbar() {
         className="mx-3 mt-3 rounded-2xl border border-white/10 bg-black/40 px-4 py-3 backdrop-blur-xl sm:mx-4 sm:mt-4 sm:px-6 md:mx-8 md:px-8"
         style={{ boxShadow: '0 0 0 1px rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.4)' }}
       >
-        <div className="flex items-center justify-between">
-          {/* Logo – use logo.png when available, else text fallback */}
-          <a href="/" className="flex items-center gap-2">
+        <div className="relative flex min-h-[3.25rem] items-center justify-between md:min-h-[3.5rem]">
+          {/* Logo – use logo.png when available, else text fallback; block removes inline gap for even padding */}
+          <a href="/" className="flex flex-shrink-0 items-center justify-center">
             {!logoError ? (
               <img
                 src="/logo.png"
                 alt="Kramcode"
-                className="h-8 w-auto object-contain md:h-9"
+                className="block h-12 w-auto object-contain sm:h-14 md:h-16 lg:h-[4.25rem]"
                 onError={() => setLogoError(true)}
               />
             ) : (
-              <span className="font-semibold tracking-tight text-white">Kramcode</span>
+              <span className="text-lg font-semibold tracking-tight text-white sm:text-xl">Kramcode</span>
             )}
           </a>
+
+          {/* Tagline – centred in app bar; same size/weight as nav links (text-base ≈ +2pt from text-sm) */}
+          <span className="absolute left-1/2 hidden -translate-x-1/2 text-base font-medium text-slate-400 md:inline">
+            Logic in Sequence, Precision in Code.
+          </span>
 
           {/* Desktop nav */}
           <div className="hidden items-center gap-8 md:flex">
@@ -44,14 +49,14 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-slate-300 transition-colors hover:text-white"
+                className="text-base font-medium text-slate-300 transition-colors hover:text-white"
               >
                 {link.label}
               </a>
             ))}
             <a
               href="#get-started"
-              className="relative rounded-lg bg-[#8b5cf6] px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[#7c3aed]"
+              className="relative rounded-lg bg-[#8b5cf6] px-5 py-2.5 text-base font-semibold text-white transition-all hover:bg-[#7c3aed]"
               style={{
                 boxShadow: '0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.2)',
               }}

@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
-const tagline = 'Automate Your Infrastructure with AI'
+const headline = 'Automate Your Infrastructure with AI'
+const tagline = 'Logic in Sequence, Precision in Code.'
 const subtext =
   'Deploy, scale, and manage your cloud infrastructure with AI-driven automation. Less manual work, more reliability.'
 
@@ -12,8 +13,8 @@ function TypingHeading() {
   useEffect(() => {
     let i = 0
     const t = setInterval(() => {
-      if (i <= tagline.length) {
-        setDisplay(tagline.slice(0, i))
+      if (i <= headline.length) {
+        setDisplay(headline.slice(0, i))
         i++
       } else {
         setDone(true)
@@ -44,6 +45,9 @@ export default function Hero() {
         className="max-w-2xl flex-shrink-0 text-center md:text-left"
       >
         <TypingHeading />
+        <p className="mt-3 text-sm font-medium text-[#8b5cf6] sm:text-base md:text-lg">
+          {tagline}
+        </p>
         <p className="mt-4 max-w-xl text-base text-slate-400 sm:mt-6 sm:text-lg md:text-xl">
           {subtext}
         </p>
@@ -86,12 +90,14 @@ export default function Hero() {
         >
           {/* Monitor bezel */}
           <div className="rounded-lg border border-white/5 bg-[#0a0a0a] p-1">
-            {/* Screen area */}
-            <div className="relative aspect-video overflow-hidden rounded-md bg-[#0f0f0f]">
+            {/* Screen area – centered content */}
+            <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-md bg-[#0f0f0f]">
               <img
                 src="/hero-animation.gif"
                 alt="Kramcode infrastructure automation"
-                className="h-full w-full object-cover object-center"
+                loading="lazy"
+                decoding="async"
+                className="max-h-full max-w-full object-contain object-center"
               />
               {/* Fallback gradient if GIF not loaded */}
               <div
