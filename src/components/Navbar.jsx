@@ -20,7 +20,7 @@ export default function Navbar() {
       className="fixed top-0 left-0 right-0 z-50"
     >
       <nav
-        className="mx-4 mt-4 rounded-2xl border border-white/10 bg-black/40 px-6 py-3 backdrop-blur-xl md:mx-8 md:px-8"
+        className="mx-3 mt-3 rounded-2xl border border-white/10 bg-black/40 px-4 py-3 backdrop-blur-xl sm:mx-4 sm:mt-4 sm:px-6 md:mx-8 md:px-8"
         style={{ boxShadow: '0 0 0 1px rgba(255,255,255,0.05), 0 4px 24px rgba(0,0,0,0.4)' }}
       >
         <div className="flex items-center justify-between">
@@ -60,12 +60,13 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu button – min 44px touch target */}
           <button
             type="button"
             onClick={() => setMobileOpen((o) => !o)}
-            className="rounded-lg p-2 text-slate-400 hover:bg-white/5 hover:text-white md:hidden"
-            aria-label="Toggle menu"
+            className="-mr-2 flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-slate-400 hover:bg-white/5 hover:text-white active:bg-white/10 md:hidden"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -84,7 +85,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-sm font-medium text-slate-300 hover:text-white"
+                className="block py-3 text-base font-medium text-slate-300 hover:text-white active:text-white"
               >
                 {link.label}
               </a>
@@ -92,7 +93,7 @@ export default function Navbar() {
             <a
               href="#get-started"
               onClick={() => setMobileOpen(false)}
-              className="rounded-lg bg-[#8b5cf6] px-5 py-2.5 text-center text-sm font-semibold text-white"
+              className="flex min-h-[44px] items-center justify-center rounded-lg bg-[#8b5cf6] px-5 py-3 text-center text-base font-semibold text-white"
               style={{
                 boxShadow: '0 0 20px rgba(139, 92, 246, 0.5)',
               }}

@@ -13,9 +13,11 @@ Until you add them, the navbar will show the text “Kramcode” and the hero wi
 
 ## Commands
 
-- `npm run dev` – Start dev server
+- `npm run dev` – Start dev server (**HTTPS** at `https://localhost:5173`; accept the self-signed cert warning in the browser if prompted)
 - `npm run build` – Production build
 - `npm run preview` – Preview production build
+
+The site is responsive: layout, touch targets, and typography adapt for mobile and tablet. Use `npm run dev` and open the URL on your phone (same network) to test; the server listens on all interfaces (`host: true`).
 
 ---
 
