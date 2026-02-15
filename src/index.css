@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* Kramcode design tokens – dark cyberpunk theme */
+@theme {
+  --color-bg-deep: #0a0a0a;
+  --color-neon-purple: #8b5cf6;
+  --color-electric-blue: #3b82f6;
+  --color-text-muted: #94a3b8;
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  --color-glass-border-glow: rgba(139, 92, 246, 0.4);
+  --font-sans: "Space Grotesk", "Inter", system-ui, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-bg-deep);
+  color: #fff;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Animated grid overlay */
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
